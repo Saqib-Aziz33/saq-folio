@@ -11,7 +11,7 @@ Results-driven Software Engineer with a proven track record of bridging the gap 
 
 ### **Core Competencies**
 
-- **Full-Stack Development:** Next.js (App Router), React, Nest.js, Fast API, and Electron.js.
+- **Full-Stack Development:** Next.js, React, Nest.js, Fast API, and Electron.js.
 - **AI & Data Engineering:** RAG Pipelines, Vector Databases (Pinecone/ChromaDB), LLM Orchestration, and Prompt Engineering.
 - **System Architecture:** Cloud-native backends (AWS/GCP), Microservices, Docker, and CI/CD Automation.
 - **Product Leadership:** Managing junior teams, technical decision-making, and end-to-end SDLC oversight.
