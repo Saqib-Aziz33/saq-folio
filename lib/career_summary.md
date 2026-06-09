@@ -5,7 +5,7 @@ _4+ Years of Experience Building Scalable SaaS & AI-Driven Architectures_
 
 ### **Professional Profile**
 
-Results-driven Software Engineer with a proven track record of bridging the gap between complex backend architecture and intuitive frontend experiences. Expert in the **T3/Next.js stack, Node.js, and Python**, with a specialized focus on **Generative AI (RAG, MCP, LangChain)**. I excel at transforming abstract business requirements into high-performance, cloud-native applications that drive user retention and operational efficiency.
+Results-driven Software Engineer with a proven track record of bridging the gap between complex backend architecture and intuitive frontend experiences. Expert in the **T3/Next.js stack, Node.js, and Python**, with a specialized focus on **Generative AI (RAG, MCP, LangChain, LangGraph)**. I excel at transforming abstract business requirements into high-performance, cloud-native applications that drive user retention and operational efficiency.
 
 ---
 
@@ -41,14 +41,14 @@ _Frontend Engineer & Team Lead | Jan 2023 – Feb 2025_
 
 ### **Technical Toolbox**
 
-| Category           | Technologies                                                               |
-| :----------------- | :------------------------------------------------------------------------- |
-| **Languages**      | TypeScript, JavaScript, Python, SQL                                        |
-| **Frontend**       | Next.js, React, Redux, Zustand, Tailwind CSS, Bootstrap                    |
-| **Backend**        | Node.js (Nest.js, Express), Python (FastAPI, LangChain), Sockets, MQTT     |
-| **AI & LLM**       | OpenAI, Google Vertex AI, RAG, MCP, ChromaDB, Pinecone, Prompt Engineering |
-| **Cloud & DevOps** | AWS (EC2/S3), GCP, Docker, GitHub Actions, Nginx, Linux, Vercel            |
-| **Databases**      | MongoDB, MySQL, PostgreSQL (Prisma/TypeORM), Firebase, Redis               |
+| Category           | Technologies                                                                       |
+| :----------------- | :--------------------------------------------------------------------------------- |
+| **Languages**      | TypeScript, JavaScript, Python, SQL                                                |
+| **Frontend**       | Next.js, React, Redux, Zustand, Tailwind CSS, Bootstrap                            |
+| **Backend**        | Node.js (Nest.js, Express), Python (FastAPI, LangChain, Langraph), Sockets, MQTT   |
+| **AI & LLM**       | Agents, OpenAI, Google Vertex AI, RAG, MCP, ChromaDB, Pinecone, Prompt Engineering |
+| **Cloud & DevOps** | AWS, GCP, Docker, GitHub Actions, Nginx, Linux, Vercel                             |
+| **Databases**      | MongoDB, MySQL, PostgreSQL (Prisma/TypeORM), Firebase, Redis                       |
 
 ---
 
