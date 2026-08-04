@@ -11,10 +11,10 @@ Results-driven Software Engineer with a proven track record of bridging the gap 
 
 ### **Core Competencies**
 
-- **Full-Stack Development:** Next.js, React, Nest.js, Fast API, and Electron.js.
-- **AI & Data Engineering:** RAG Pipelines, Vector Databases (Pinecone/ChromaDB), LLM Orchestration, and Prompt Engineering.
+- **Full-Stack Development:** Typescript, Next.js, Express, React, Nest.js, Fast API, and Electron.js.
+- **AI & Data Engineering:** RAG Pipelines, Vector Databases (Pinecone/ChromaDB), LLM Orchestration, Multi agent system, and Prompt Engineering.
 - **System Architecture:** Cloud-native backends (AWS/GCP), Microservices, Docker, and CI/CD Automation.
-- **Product Leadership:** Managing junior teams, technical decision-making, and end-to-end SDLC oversight.
+- **Product Leadership:** AI product development, Presenting product demo to the clients,Managing junior teams, technical decision-making, and end-to-end SDLC oversight.
 
 ---
 
@@ -23,7 +23,7 @@ Results-driven Software Engineer with a proven track record of bridging the gap 
 **Vizz Web Solutions | Rawalpindi, Pakistan (Onsite)**
 _Full-Stack & AI Engineer | Feb 2025 – Present_
 
-- **AI-SaaS Architect:** Engineering subscription-based SaaS applications utilizing Generative AI, RAG, and Multi-model architectures to solve complex data retrieval tasks.
+- **AI-SaaS Architect:** Engineering subscription-based SaaS applications utilizing Generative AI, RAG, and Multi-model architectures and Multi agent system to solve complex data retrieval tasks and automation.
 - **Next-Gen Integration:** Implementing **MCP (Model Context Protocol)** servers and cloud-native backends to enhance AI agency and tool-use capabilities.
 - **FinTech & CRM:** Streamlined global payment flows by integrating Stripe, PayPal, and Urway with robust webhook handling and security protocols.
 - **Scalable Infrastructure:** Leading system architecture decisions, conducting deep code reviews, and managing deployments via Docker and automated CI/CD pipelines.
