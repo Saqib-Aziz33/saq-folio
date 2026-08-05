@@ -50,6 +50,7 @@ _Frontend Engineer & Team Lead | Jan 2023 – Feb 2025_
 | **Cloud & DevOps** | AWS, GCP, Docker, GitHub Actions, Nginx, Linux, Vercel                             |
 | **Databases**      | MongoDB, MySQL, PostgreSQL (Prisma/TypeORM), Firebase, Redis                       |
 
+e2e testing, unit testing
 ---
 
 ### **Education**
