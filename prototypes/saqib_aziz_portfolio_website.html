@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saqib Aziz | Full Stack Software Engineer & AI Expert</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            900: '#312e81',
+                        },
+                        accent: {
+                            400: '#38bdf8',
+                            500: '#06b6d4',
+                            emerald: '#10b981',
+                        },
+                        dark: {
+                            bg: '#0B0F17',
+                            card: '#111827',
+                            border: '#1F2937',
+                            hover: '#1F2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #38bdf8 50%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            position: relative;
+            background: #111827;
+            background-clip: padding-box;
+            border: 1px solid transparent;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(56,189,248,0.1), rgba(16,185,129,0.3));
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/80 backdrop-blur-md border-b border-dark-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-accent-emerald flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    SA
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-white text-lg tracking-tight leading-none">Saqib Aziz</span>
+                    <span class="text-xs text-slate-400 font-mono tracking-wider">AI & FULL-STACK</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#services" class="hover:text-brand-400 transition-colors">Services</a>
+                <a href="#projects" class="hover:text-brand-400 transition-colors">Featured Projects</a>
+                <a href="#skills" class="hover:text-brand-400 transition-colors">Tech Stack</a>
+                <a href="#experience" class="hover:text-brand-400 transition-colors">Experience</a>
+                <a href="#contact" class="hover:text-brand-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#contact" class="px-5 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-500/50 flex items-center gap-2">
+                    <span>Book Strategy Call</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card border-b border-dark-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" class="block py-2 text-slate-300 hover:text-brand-400 font-medium">Services</a>
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-brand-400 font-medium">Featured Projects</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-brand-400 font-medium">Tech Stack</a>
+            <a href="#experience" class="block py-2 text-slate-300 hover:text-brand-400 font-medium">Experience</a>
+            <a href="#contact" class="block py-2 text-slate-300 hover:text-brand-400 font-medium">Contact</a>
+            <div class="pt-2">
+                <a href="#contact" class="w-full py-3 rounded-lg bg-brand-600 text-white font-medium text-center block">Book Strategy Call</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center justify-center py-20 overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-accent-emerald/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs sm:text-sm font-medium text-slate-300 mb-8 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-accent-emerald animate-pulse"></span>
+                    Available for Remote Roles & High-Impact Client Projects
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] max-w-5xl mx-auto mb-6">
+                    Architecting Scalable Web Products & <span class="gradient-text">Production AI Workflows</span>
+                </h1>
+
+                <!-- Sub-headline -->
+                <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                    Full-Stack Software Engineer & AI Automation Expert with 4+ years of experience delivering robust multi-tenant platforms, autonomous agents, and enterprise RAG systems for US & UK clients.
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-base transition-all shadow-xl shadow-brand-600/25 hover:shadow-brand-500/40 flex items-center justify-center gap-3">
+                        <span>Explore Client Services</span>
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#experience" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-semibold text-base transition-all flex items-center justify-center gap-3">
+                        <span>View Technical Credentials</span>
+                        <i data-lucide="code-2" class="w-5 h-5"></i>
+                    </a>
+                </div>
+
+                <!-- Metrics Band -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
+                    <div class="p-4 rounded-lg bg-dark-card/50 border border-dark-border">
+                        <div class="text-3xl font-extrabold text-white font-mono">4+</div>
+                        <div class="text-xs text-slate-400 mt-1">Years Experience</div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-dark-card/50 border border-dark-border">
+                        <div class="text-3xl font-extrabold text-white font-mono">1,500+</div>
+                        <div class="text-xs text-slate-400 mt-1">API Integrations</div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-dark-card/50 border border-dark-border">
+                        <div class="text-3xl font-extrabold text-white font-mono">US & UK</div>
+                        <div class="text-xs text-slate-400 mt-1">Remote Client Track Record</div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-dark-card/50 border border-dark-border">
+                        <div class="text-3xl font-extrabold text-white font-mono">Production</div>
+                        <div class="text-xs text-slate-400 mt-1">Multi-Tenant AI Runtimes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section (For Clients / Non-Tech Audience) -->
+        <section id="services" class="py-24 bg-dark-card/40 border-y border-dark-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-semibold text-brand-400 uppercase tracking-widest font-mono mb-2">Solutions & Expertise</h2>
+                    <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Services Designed to Drive Measurable Business ROI</p>
+                    <p class="text-slate-400 mt-4">Bridging complex engineering with practical business solutions—whether you need an AI agent to streamline support or a complete SaaS platform.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <i data-lucide="bot" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Enterprise AI & Autonomous Agents</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Automate business workflows, customer support, and knowledge discovery with customized autonomous AI agent systems and localized enterprise search (RAG).
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-300 font-medium mb-6">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Multi-Agent SEO & Support Systems</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Human-in-the-Loop Approvals</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Token-Optimized & Durable Workflows</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">LangChain</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">LangGraph</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">Vertex AI</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-accent-400/10 text-accent-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <i data-lucide="layout" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Full-Stack SaaS & Web Apps</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Turn key concepts into production-grade web products with fast frontends, robust backend APIs, role-based access, and monetization integrations.
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-300 font-medium mb-6">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> High-performance React / Next.js UIs</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Scalable APIs & Microservices</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Stripe Billing & Auth Systems</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">React</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">Next.js</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">Node.js</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">Python</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-brand-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-accent-emerald/10 text-accent-emerald flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <i data-lucide="zap" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Workflow Automation & Scraping</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Connect fragmented software systems, eliminate repetitive manual data entry, and implement automated data scraping pipelines.
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-300 font-medium mb-6">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Custom n8n Automation Workflows</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Web Scraping & Data Extraction</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Real-time Slack/Teams Integrations</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">n8n</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">Playwright</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-800 text-slate-400">Webhooks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section (Placeholder Structure) -->
+        <section id="projects" class="py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <h2 class="text-xs font-semibold text-brand-400 uppercase tracking-widest font-mono mb-2">Portfolio Showcase</h2>
+                        <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Featured Engineering Projects</p>
+                    </div>
+                    <p class="text-slate-400 max-w-md mt-4 md:mt-0 text-sm">
+                        A sample of multi-tenant platforms, AI tools, and enterprise full-stack web applications.
+                    </p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card Placeholder 1 -->
+                    <div class="rounded-2xl bg-dark-card border border-dark-border overflow-hidden hover:border-slate-700 transition-all flex flex-col">
+                        <div class="h-48 bg-slate-800/80 relative flex items-center justify-center border-b border-dark-border group">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10"></div>
+                            <span class="font-mono text-xs text-slate-500 z-20 flex items-center gap-2">
+                                <i data-lucide="image" class="w-4 h-4"></i> Project Screenshot / Demo
+                            </span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-mono text-brand-400">AI / Agentic Platform</span>
+                                    <span class="text-xs text-slate-500">2026</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Multi-Tenant Knowledge Agent Platform</h3>
+                                <p class="text-slate-400 text-sm mb-4">
+                                    Agentic runtime with Postgres checkpointing, memory persistence, and token cost optimization handling support intelligence.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap gap-1.5 mb-6">
+                                    <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-300">LangChain</span>
+                                    <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-300">LangGraph</span>
+                                    <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-300">FastAPI</span>
+                                </div>
+                                <a href="#" class="text-sm font-medium text-brand-400 hover:text-brand-300 inline-flex items-center gap-1">
+                                    View Case Study <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card Placeholder 2 -->
+                    <div class="rounded-2xl bg-dark-card border border-dark-border overflow-hidden hover:border-slate-700 transition-all flex flex-col">
+                        <div class="h-48 bg-slate-800/80 relative flex items-center justify-center border-b border-dark-border group">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10"></div>
+                            <span class="font-mono text-xs text-slate-500 z-20 flex items-center gap-2">
+                                <i data-lucide="image" class="w-4 h-4"></i> Project Screenshot / Demo
+                            </span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-mono text-accent-400">Full-Stack SaaS</span>
+                                    <span class="text-xs text-slate-500">2025</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">B2B Analytics & Dashboard Portal</h3>
+                                <p class="text-slate-400 text-sm mb-4">
+                                    Enterprise dashboard with role-based access controls, real-time data visualizers, and decoupled event architectures.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap gap-1.5 mb-6">
+                                    <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-300">Next.js</span>
+                                    <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-300">Node.js</span>
+                                    <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-300">PostgreSQL</span>
+                                </div>
+                                <a href="#" class="text-sm font-medium text-brand-400 hover:text-brand-300 inline-flex items-center gap-1">
+                                    View Live App <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card Placeholder 3 -->
+                    <div class="rounded-2xl bg-dark-card border border-dark-border overflow-hidden hover:border-slate-700 transition-all flex flex-col">
+                        <div class="h-48 bg-slate-800/80 relative flex items-center justify-center border-b border-dark-border group">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10"></div>
+                            <span class="font-mono text-xs text-slate-500 z-20 flex items-center gap-2">
+                                <i data-lucide="image" class="w-4 h-4"></i> Project Screenshot / Demo
+                            </span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-mono text-accent-emerald">Automation System</span>
+                                    <span class="text-xs text-slate-500">2025</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Automated Workflow & Web Pipeline</h3>
+                                <p class="text-slate-400 text-sm mb-4">
+                                    Data extraction engine integrating n8n pipelines, Playwright web scrapers, and automated Slack notifications.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap gap-1.5 mb-6">
+                                    <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-300">n8n</span>
+                                    <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-300">Python</span>
+                                    <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-300">Docker</span>
+                                </div>
+                                <a href="#" class="text-sm font-medium text-brand-400 hover:text-brand-300 inline-flex items-center gap-1">
+                                    View System Architecture <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section (For HR / Technical Recruiters) -->
+        <section id="skills" class="py-24 bg-dark-card/40 border-y border-dark-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-semibold text-brand-400 uppercase tracking-widest font-mono mb-2">Core Competencies</h2>
+                    <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Full-Stack & AI Stack Matrix</p>
+                    <p class="text-slate-400 mt-4">Categorized technical inventory for engineering leads and technical recruiters.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- AI & LLM Engineering -->
+                    <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
+                        <div class="flex items-center gap-3 mb-4 text-brand-400">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            <h3 class="font-bold text-white text-base">AI & LLM Stack</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>LangChain / LangGraph</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>RAG Pipelines</span> <span class="text-xs text-slate-500">Production</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>DeepAgents / Guardrails</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Vector DBs (Chroma, Pinecone)</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1">
+                                <span>Langfuse Tracing / OpenRouter</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Frontend Development -->
+                    <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
+                        <div class="flex items-center gap-3 mb-4 text-accent-400">
+                            <i data-lucide="code" class="w-5 h-5"></i>
+                            <h3 class="font-bold text-white text-base">Frontend & Mobile</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>React.js / Next.js</span> <span class="text-xs text-slate-500">4+ Years</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>TypeScript / JavaScript</span> <span class="text-xs text-slate-500">Expert</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>React Native / Electron</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Tailwind CSS / Redux</span> <span class="text-xs text-slate-500">Expert</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1">
+                                <span>Core Web Vitals & SEO</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Backend & Databases -->
+                    <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
+                        <div class="flex items-center gap-3 mb-4 text-accent-emerald">
+                            <i data-lucide="server" class="w-5 h-5"></i>
+                            <h3 class="font-bold text-white text-base">Backend & Databases</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Node.js / Express / NestJS</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Python (FastAPI, Flask)</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>PostgreSQL / MongoDB</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Prisma / Drizzle / Redis</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1">
+                                <span>RESTful & Event-Driven APIs</span> <span class="text-xs text-slate-500">Expert</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cloud & DevOps -->
+                    <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
+                        <div class="flex items-center gap-3 mb-4 text-purple-400">
+                            <i data-lucide="cloud" class="w-5 h-5"></i>
+                            <h3 class="font-bold text-white text-base">Cloud & Infrastructure</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Google Cloud Platform (GCP)</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>AWS (S3, Lambda)</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Docker / CI/CD Pipelines</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Nginx / Firebase / VPS</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1">
+                                <span>OAuth 2.1 + PKCE / Security</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Automation & Web Scraping -->
+                    <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
+                        <div class="flex items-center gap-3 mb-4 text-amber-400">
+                            <i data-lucide="cpu" class="w-5 h-5"></i>
+                            <h3 class="font-bold text-white text-base">Automation & Scraping</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>n8n Workflow Automation</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Playwright / Firecrawl</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>BeautifulSoup / Web Scraping</span> <span class="text-xs text-slate-500">Expert</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Webhooks / Celery Workflows</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1">
+                                <span>Stripe / PayPal API Systems</span> <span class="text-xs text-slate-500">Advanced</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- QA Testing & Developer Tools -->
+                    <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
+                        <div class="flex items-center gap-3 mb-4 text-rose-400">
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            <h3 class="font-bold text-white text-base">Testing & Tools</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Jest / PyTest</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Cypress / Playwright E2E</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Git / GitHub Workflows</span> <span class="text-xs text-slate-500">Expert</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1 border-b border-slate-800">
+                                <span>Figma / Canvas / UI Design</span> <span class="text-xs text-slate-500">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between py-1">
+                                <span>Agile / Remote Delivery</span> <span class="text-xs text-slate-500">4+ Years</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Timeline Section -->
+        <section id="experience" class="py-24">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-semibold text-brand-400 uppercase tracking-widest font-mono mb-2">Track Record</h2>
+                    <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Professional Experience</p>
+                </div>
+
+                <div class="relative border-l border-slate-800 ml-4 md:ml-32 space-y-12">
+                    
+                    <!-- Role 1 -->
+                    <div class="relative pl-8 md:pl-10">
+                        <!-- Timeline Dot -->
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-dark-bg"></div>
+                        <!-- Date Badge (Desktop Left) -->
+                        <div class="md:absolute md:-left-36 md:top-1 font-mono text-xs text-brand-400 font-semibold mb-2 md:mb-0">
+                            JAN 2026 – PRESENT
+                        </div>
+                        <div class="bg-dark-card border border-dark-border p-6 rounded-2xl">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                                <h3 class="text-xl font-bold text-white">Full Stack AI Engineer</h3>
+                                <span class="text-xs font-mono text-slate-400">Knowledge Agents • Remote</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside mb-4">
+                                <li>Built production AI runtimes on LangChain, LangGraph, and DeepAgents with Postgres checkpointing and human-in-the-loop approvals.</li>
+                                <li>Resolved a 7x throughput bottleneck using OpenRouter provider pinning across 1,500+ third-party APIs via OpenConnector.</li>
+                                <li>Engineered multi-tenant governance, RBAC, audit logs, Stripe billing, and security via OAuth 2.1 + PKCE and rotating refresh tokens.</li>
+                                <li>Built RAG pipelines using Vertex AI, GCS, MongoDB, Redis, and Celery for document search and support workflows.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">LangChain</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">Vertex AI</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">Langfuse</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">Stripe API</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role 2 -->
+                    <div class="relative pl-8 md:pl-10">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-dark-bg"></div>
+                        <div class="md:absolute md:-left-36 md:top-1 font-mono text-xs text-slate-400 font-semibold mb-2 md:mb-0">
+                            FEB 2025 – PRESENT
+                        </div>
+                        <div class="bg-dark-card border border-dark-border p-6 rounded-2xl">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                                <h3 class="text-xl font-bold text-white">Full Stack Engineer</h3>
+                                <span class="text-xs font-mono text-slate-400">Vizz Web Solutions • Pakistan</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside mb-4">
+                                <li>Owned full software development life cycle for client projects from requirements to production deployment.</li>
+                                <li>Fine-tuned language models for specific business domains and automated workflows with n8n.</li>
+                                <li>Built B2B/B2C dashboards featuring real-time data visualizers and role-based access control (RBAC).</li>
+                                <li>Designed scalable microservices and APIs with Next.js, Node.js, and Python.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">Next.js</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">Python</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">n8n</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">Event-Driven Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role 3 -->
+                    <div class="relative pl-8 md:pl-10">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-dark-bg"></div>
+                        <div class="md:absolute md:-left-36 md:top-1 font-mono text-xs text-slate-400 font-semibold mb-2 md:mb-0">
+                            JAN 2023 – FEB 2025
+                        </div>
+                        <div class="bg-dark-card border border-dark-border p-6 rounded-2xl">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                                <h3 class="text-xl font-bold text-white">Frontend Developer</h3>
+                                <span class="text-xs font-mono text-slate-400">Zimo Group • London, UK (Remote)</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside mb-4">
+                                <li>Converted Adobe XD designs into responsive Next.js web applications backed by AWS Lambda.</li>
+                                <li>Integrated multi-lingual platforms for real estate, e-commerce, and admin platforms.</li>
+                                <li>Built desktop extensions with Electron.js and React Native mobile prototypes for meeting apps.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">Next.js</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">React Native</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">Electron.js</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-400">AWS Lambda</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Education Summary -->
+                <div class="mt-16 p-6 rounded-2xl bg-dark-card/60 border border-dark-border flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-brand-400">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">Bachelor of Science in Computer Science</h4>
+                            <p class="text-slate-400 text-sm">Allama Iqbal Open University • Islamabad, Pakistan</p>
+                        </div>
+                    </div>
+                    <div class="font-mono text-right">
+                        <span class="text-brand-400 font-bold">3.6 GPA</span>
+                        <div class="text-xs text-slate-500">Software Engineering Major (2019 – 2023)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Strategy Call Section -->
+        <section id="contact" class="py-24 bg-dark-card/40 border-t border-dark-border relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    
+                    <!-- Left: Direct Info & Booking -->
+                    <div>
+                        <h2 class="text-xs font-semibold text-brand-400 uppercase tracking-widest font-mono mb-2">Let's Connect</h2>
+                        <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-6">Ready to Build Something Production-Grade?</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed">
+                            Whether you need an end-to-end full-stack web application, an autonomous AI agent integrated into your existing workflow, or an experienced full-stack engineer for your tech team.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-brand-400">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-500 uppercase font-mono">Email Me Directly</div>
+                                    <a href="mailto:saqibaziz33@gmail.com" class="text-white font-medium hover:text-brand-400 transition-colors">saqibaziz33@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-accent-400">
+                                    <i data-lucide="globe" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-500 uppercase font-mono">Timezone & Remote Availability</div>
+                                    <div class="text-white font-medium">Pakistan (PKT) — Overlapping US & UK Business Hours</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 pt-4">
+                                <a href="https://github.com/Saqib-Aziz33" target="_blank" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </a>
+                                <a href="#" target="_blank" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Interactive Client / Recruiter Contact Form -->
+                    <div class="p-8 rounded-2xl bg-dark-card border border-dark-border">
+                        <form onsubmit="event.preventDefault(); alert('Message sent!');" class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-mono uppercase text-slate-400 mb-2">Your Name</label>
+                                <input type="text" placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-brand-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono uppercase text-slate-400 mb-2">Your Email</label>
+                                <input type="email" placeholder="john@company.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-brand-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono uppercase text-slate-400 mb-2">Inquiry Type</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 focus:outline-none focus:border-brand-500 transition-colors">
+                                    <option>Client Project (AI System or Web App)</option>
+                                    <option>Full-Time / Contract Remote Hire</option>
+                                    <option>Workflow Automation Request</option>
+                                    <option>Other Collaboration</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono uppercase text-slate-400 mb-2">Project / Role Details</label>
+                                <textarea rows="4" placeholder="Tell me about your goals, timeline, or open role..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-brand-500 transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                                <span>Send Message</span>
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-dark-border text-center text-xs text-slate-500 font-mono">
+        <div class="max-w-7xl mx-auto px-4">
+            © 2026 Saqib Aziz. Built with Tailwind CSS & Modern Engineering Principles.
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
