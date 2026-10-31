@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saqib Aziz | Full Stack Software Engineer & AI Architect</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            bg: '#07090E',
+                            card: '#0D111A',
+                            cardHover: '#141A26',
+                            border: 'rgba(255, 255, 255, 0.08)',
+                            cyan: '#00F5D4',
+                            violet: '#8A2BE2',
+                            blue: '#3B82F6',
+                            emerald: '#10B981',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { opacity: '0.4', filter: 'blur(20px)' },
+                            '100%': { opacity: '0.8', filter: 'blur(35px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #07090E;
+            color: #94A3B8;
+        }
+
+        /* Cyber Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(13, 17, 26, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-hover:hover {
+            border-color: rgba(0, 245, 212, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px -10px rgba(0, 245, 212, 0.15);
+        }
+
+        .gradient-text-cyan {
+            background: linear-gradient(135deg, #00F5D4 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-violet {
+            background: linear-gradient(135deg, #A855F7 0%, #8A2BE2 50%, #00F5D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cyber-grid-bg {
+            background-image: radial-gradient(rgba(0, 245, 212, 0.07) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+
+        .tag-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #07090E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F5D4;
+        }
+    </style>
+</head>
+<body class="cyber-grid-bg selection:bg-cyber-cyan selection:text-black font-sans antialiased relative">
+
+    <!-- Ambient Glowing Orbs -->
+    <div class="fixed top-10 left-1/4 w-[500px] h-[500px] bg-cyber-violet/15 rounded-full animate-pulse-slow blur-[120px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-10 right-1/4 w-[600px] h-[600px] bg-cyber-cyan/10 rounded-full animate-pulse-slow blur-[140px] pointer-events-none -z-10"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#07090E]/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyber-cyan via-cyber-blue to-cyber-violet p-[1px] group-hover:shadow-[0_0_20px_rgba(0,245,212,0.5)] transition-all">
+                    <div class="w-full h-full bg-cyber-bg rounded-[11px] flex items-center justify-center font-heading font-extrabold text-cyber-cyan text-lg">
+                        SA
+                    </div>
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-white text-lg tracking-tight block leading-none">Saqib Aziz</span>
+                    <span class="text-[10px] text-cyber-cyan font-mono tracking-widest uppercase">AI Architect & Lead Engineer</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#metrics" class="hover:text-cyber-cyan transition-colors">Impact Metrics</a>
+                <a href="#cases" class="hover:text-cyber-cyan transition-colors">Architectural Wins</a>
+                <a href="#services" class="hover:text-cyber-cyan transition-colors">Services</a>
+                <a href="#skills" class="hover:text-cyber-cyan transition-colors">Tech Matrix</a>
+                <a href="#experience" class="hover:text-cyber-cyan transition-colors">Career Journey</a>
+            </nav>
+
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="#contact" class="px-4 py-2.5 rounded-xl text-xs font-mono font-semibold text-slate-300 hover:text-white glass-card hover:border-cyber-cyan/40 transition-all flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-4 h-4 text-cyber-cyan"></i>
+                    <span>Download CV</span>
+                </a>
+                <a href="#estimator" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-black font-semibold text-xs font-mono uppercase tracking-wider transition-all hover:shadow-[0_0_25px_rgba(0,245,212,0.4)] hover:scale-[1.02] flex items-center gap-2">
+                    <i data-lucide="zap" class="w-4 h-4 fill-current"></i>
+                    <span>Book Call</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-cyber-card border-b border-white/10 px-6 py-6 space-y-4">
+            <a href="#metrics" class="block text-slate-300 hover:text-cyber-cyan font-medium">Impact Metrics</a>
+            <a href="#cases" class="block text-slate-300 hover:text-cyber-cyan font-medium">Architectural Wins</a>
+            <a href="#services" class="block text-slate-300 hover:text-cyber-cyan font-medium">Services</a>
+            <a href="#skills" class="block text-slate-300 hover:text-cyber-cyan font-medium">Tech Matrix</a>
+            <a href="#experience" class="block text-slate-300 hover:text-cyber-cyan font-medium">Career Journey</a>
+            <div class="pt-4 flex flex-col gap-3">
+                <a href="#estimator" class="w-full py-3 rounded-xl bg-cyber-cyan text-black font-bold text-center text-sm font-mono uppercase">Book Call</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 sm:pt-28">
+
+        <!-- HERO BENTO SECTION -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <!-- Main Hero Bento Card (Col 8) -->
+                <div class="lg:col-span-8 glass-card p-8 sm:p-12 rounded-3xl relative overflow-hidden flex flex-col justify-between border-white/10">
+                    <div class="absolute -top-24 -right-24 w-72 h-72 bg-cyber-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div>
+                        <!-- Availability Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-mono font-medium mb-8">
+                            <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-ping"></span>
+                            ⚡ Available for Remote Engineering & AI Consulting
+                        </div>
+
+                        <!-- Punchy Headline -->
+                        <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+                            I Build <span class="gradient-text-cyan">Autonomous AI Systems</span> & High-Scale Web Products.
+                        </h1>
+
+                        <!-- Value Statement -->
+                        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal mb-8">
+                            Full-Stack & AI Architect with <strong class="text-white font-semibold">4+ years shipping production software</strong>. Specialized in multi-tenant agentic platforms, RAG workflows, LangGraph runtimes, and resilient cloud infrastructure for US & UK markets.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="#services" class="px-6 py-3.5 rounded-xl bg-cyber-cyan text-black font-semibold font-mono text-xs uppercase tracking-wider hover:bg-white transition-all shadow-[0_0_20px_rgba(0,245,212,0.25)] flex items-center gap-2">
+                            <span>Explore Enterprise Services</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#cases" class="px-6 py-3.5 rounded-xl glass-card hover:border-cyber-cyan/40 text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2">
+                            <i data-lucide="terminal" class="w-4 h-4 text-cyber-cyan"></i>
+                            <span>View Production Architecture</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Side Hero Bento Cards (Col 4) -->
+                <div class="lg:col-span-4 flex flex-col gap-6">
+                    
+                    <!-- Live Focus Badge Card -->
+                    <div class="glass-card p-6 rounded-3xl relative overflow-hidden border-white/10 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Active Engineering Focus</span>
+                                <span class="flex h-2.5 w-2.5 relative">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-emerald opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-emerald"></span>
+                                </span>
+                            </div>
+                            <h3 class="text-white font-heading font-bold text-lg mb-2">Multi-Tenant Agentic RAG</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                Deploying Postgres checkpointing, durable state management, and token-cost reduction for enterprise intelligence platforms.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-mono text-cyber-cyan">
+                            <i data-lucide="cpu" class="w-4 h-4"></i>
+                            <span>LangChain • LangGraph • DeepAgents</span>
+                        </div>
+                    </div>
+
+                    <!-- Rapid Credentials Card -->
+                    <div class="glass-card p-6 rounded-3xl border-white/10 relative overflow-hidden">
+                        <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-3">Global Remote Track Record</div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <div class="text-2xl font-bold font-heading text-white">100%</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Remote Delivery Success</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold font-heading text-cyber-cyan">US / UK</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Client Markets Covered</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- IMPACT METRICS BENTO BAR -->
+        <section id="metrics" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                
+                <!-- Metric 1 -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl border-white/5 flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-slate-400 uppercase">Performance Win</span>
+                        <i data-lucide="zap" class="w-4 h-4 text-cyber-cyan"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold font-heading text-white my-1">7x</div>
+                    <div class="text-xs text-slate-300 font-medium">Throughput boost via OpenRouter provider pinning optimization</div>
+                </div>
+
+                <!-- Metric 2 -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl border-white/5 flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-slate-400 uppercase">Ecosystem Reach</span>
+                        <i data-lucide="layers" class="w-4 h-4 text-cyber-violet"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold font-heading text-white my-1">1,500+</div>
+                    <div class="text-xs text-slate-300 font-medium">Apps integrated via OpenConnector & MCP protocols</div>
+                </div>
+
+                <!-- Metric 3 -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl border-white/5 flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-slate-400 uppercase">Production Tenure</span>
+                        <i data-lucide="shield-check" class="w-4 h-4 text-cyber-emerald"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold font-heading text-white my-1">4+ Years</div>
+                    <div class="text-xs text-slate-300 font-medium">Architecting scalable web platforms, APIs & AI infrastructure</div>
+                </div>
+
+                <!-- Metric 4 -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl border-white/5 flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-slate-400 uppercase">System Uptime</span>
+                        <i data-lucide="server" class="w-4 h-4 text-cyber-blue"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold font-heading text-white my-1">99.9%</div>
+                    <div class="text-xs text-slate-300 font-medium">Reliability with Docker schedulers & durable Postgres states</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ARCHITECTURAL WINS & CASE STUDIES SECTION -->
+        <section id="cases" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-2">Production Blueprint</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Architectural Wins & Case Studies</h2>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md mt-4 md:mt-0">
+                    Detailed production deployments engineered for fault tolerance, security, and enterprise efficiency.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Case Study 1 -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 border-white/10 flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyber-violet/10 rounded-bl-full pointer-events-none group-hover:bg-cyber-violet/20 transition-all"></div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-cyber-violet/20 text-purple-300 border border-cyber-violet/30">AI Platform</span>
+                            <span class="text-xs font-mono text-slate-500">2026 Production</span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold font-heading text-white mb-3">Multi-Tenant Agentic RAG Platform</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Architected agent runtime using LangGraph & DeepAgents with durable Postgres checkpointing, token-optimized assembly, and Langfuse tracing. Integrated Vertex AI, OCR/Vision, and Stripe credits.
+                        </p>
+
+                        <!-- Key Engineering Results -->
+                        <div class="p-4 rounded-xl bg-slate-900/80 border border-white/5 mb-6">
+                            <div class="text-[11px] font-mono text-cyber-cyan uppercase mb-1 flex items-center gap-1.5">
+                                <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Impact Delivered
+                            </div>
+                            <div class="text-xs text-slate-200 font-medium">Sub-second knowledge retrieval, zero cross-tenant data leakage, and 7x API throughput optimization.</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">LangGraph</span>
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">Vertex AI</span>
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">PostgreSQL</span>
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">Langfuse</span>
+                        </div>
+                        <a href="#estimator" class="inline-flex items-center gap-2 text-xs font-mono text-cyber-cyan hover:underline font-semibold">
+                            Request Architecture Brief <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 border-white/10 flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyber-cyan/10 rounded-bl-full pointer-events-none group-hover:bg-cyber-cyan/20 transition-all"></div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-cyber-cyan/10 text-cyber-cyan border border-cyber-cyan/30">Automation System</span>
+                            <span class="text-xs font-mono text-slate-500">2025 Production</span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold font-heading text-white mb-3">Autonomous Multi-Agent SEO Engine</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Engineered multi-agent content pipelines automating scraping, drafting, verification, and automated indexing with Human-in-the-Loop approval triggers and Slack/Teams bot orchestration.
+                        </p>
+
+                        <!-- Key Engineering Results -->
+                        <div class="p-4 rounded-xl bg-slate-900/80 border border-white/5 mb-6">
+                            <div class="text-[11px] font-mono text-cyber-cyan uppercase mb-1 flex items-center gap-1.5">
+                                <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Impact Delivered
+                            </div>
+                            <div class="text-xs text-slate-200 font-medium">Automated 100% of organic content assembly with idempotent webhooks and fault-tolerant scheduling.</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">n8n</span>
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">Playwright</span>
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">Python</span>
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">Docker</span>
+                        </div>
+                        <a href="#estimator" class="inline-flex items-center gap-2 text-xs font-mono text-cyber-cyan hover:underline font-semibold">
+                            Request System Flow <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 border-white/10 flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-bl-full pointer-events-none group-hover:bg-blue-500/20 transition-all"></div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-blue-500/20 text-blue-300 border border-blue-500/30">Enterprise Web / Desktop</span>
+                            <span class="text-xs font-mono text-slate-500">2024 - 2025</span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold font-heading text-white mb-3">Multilingual SaaS & Desktop Portals</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Delivered real estate, file sharing, and e-signature platforms using Next.js, AWS Lambda, Stripe/PayPal, Electron.js desktop apps, and React Native mobile prototypes.
+                        </p>
+
+                        <!-- Key Engineering Results -->
+                        <div class="p-4 rounded-xl bg-slate-900/80 border border-white/5 mb-6">
+                            <div class="text-[11px] font-mono text-cyber-cyan uppercase mb-1 flex items-center gap-1.5">
+                                <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Impact Delivered
+                            </div>
+                            <div class="text-xs text-slate-200 font-medium">Scaled cross-platform applications across US/UK markets with zero-downtime AWS deployments.</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">Next.js</span>
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">AWS Lambda</span>
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">Electron.js</span>
+                            <span class="tag-pill px-2.5 py-1 rounded-md text-xs font-mono text-slate-300">React Native</span>
+                        </div>
+                        <a href="#estimator" class="inline-flex items-center gap-2 text-xs font-mono text-cyber-cyan hover:underline font-semibold">
+                            Request Technical Stack <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HIGH-IMPACT SERVICES BENTO GRID (FOR CLIENTS & BUSINESS LEADERS) -->
+        <section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-2">High-ROI Solutions</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Services Offered</h2>
+                <p class="text-slate-400 mt-4 text-base">
+                    Turn-key engineering solutions designed to automate operational drag, launch AI-powered products, and increase technical efficiency.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Service 1 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-cyber-cyan/10 text-cyber-cyan flex items-center justify-center mb-6">
+                            <i data-lucide="bot" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white mb-3">Custom Autonomous AI Agents & RAG</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Build internal knowledge search and agentic automations trained on your enterprise data with full privacy, human approval triggers, and cost control.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Multi-agent support & intelligence systems</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> RAG over document archives (PDF, OCR, Vision)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Token & latency optimized LLM runtimes</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">Deliverable: Turn-Key Agent Platform</span>
+                        <a href="#estimator" class="text-xs font-mono text-cyber-cyan hover:underline font-semibold">Book Briefing →</a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-cyber-violet/10 text-cyber-violet flex items-center justify-center mb-6">
+                            <i data-lucide="layout-grid" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white mb-3">Full-Stack SaaS Product Launch (0 to 1)</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Transform product specs into production SaaS applications with Next.js frontends, scalable Node/Python APIs, Stripe subscriptions, and role-based access.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Responsive B2B & B2C Web Dashboards</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> OAuth 2.1 + PKCE authentication & RBAC</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Automated Stripe billing & usage metering</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">Deliverable: Production SaaS MVP</span>
+                        <a href="#estimator" class="text-xs font-mono text-cyber-cyan hover:underline font-semibold">Book Briefing →</a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-cyber-emerald/10 text-cyber-emerald flex items-center justify-center mb-6">
+                            <i data-lucide="workflow" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white mb-3">Workflow Automation & Scraping</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Sync fragmented operational tools, build custom n8n automation workflows, and extract web intelligence at scale using Playwright and Firecrawl.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Custom n8n & Python webhook pipelines</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Resilient web scraping with anti-blocking</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Real-time Slack & Microsoft Teams integrations</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">Deliverable: Automated Operations</span>
+                        <a href="#estimator" class="text-xs font-mono text-cyber-cyan hover:underline font-semibold">Book Briefing →</a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6">
+                            <i data-lucide="sliders" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white mb-3">LLM Fine-Tuning & Cost Optimization</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Reduce existing LLM API expenses, fine-tune models on proprietary domain datasets, and set up real-time tracing via Langfuse.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 font-medium mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Token optimization & prompt engineering</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Model provider pinning & fallback routing</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyber-cyan"></i> Enterprise guardrails & security auditing</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">Deliverable: Optimized AI Infrastructure</span>
+                        <a href="#estimator" class="text-xs font-mono text-cyber-cyan hover:underline font-semibold">Book Briefing →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- INTERACTIVE TECH STACK MATRIX (FOR TECH RECRUITERS & LEADS) -->
+        <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-2">Technical Depth</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Full-Stack & AI Stack Matrix</h2>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+                <button onclick="switchTab('ai')" id="tab-ai" class="tab-btn active px-5 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all bg-cyber-cyan text-black">
+                    AI & Agentic
+                </button>
+                <button onclick="switchTab('fullstack')" id="tab-fullstack" class="tab-btn px-5 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all glass-card text-slate-300 hover:text-white">
+                    Full-Stack Core
+                </button>
+                <button onclick="switchTab('db')" id="tab-db" class="tab-btn px-5 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all glass-card text-slate-300 hover:text-white">
+                    Databases & Storage
+                </button>
+                <button onclick="switchTab('cloud')" id="tab-cloud" class="tab-btn px-5 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all glass-card text-slate-300 hover:text-white">
+                    Cloud, DevOps & Security
+                </button>
+            </div>
+
+            <!-- Tab Contents Container -->
+            <div class="glass-card p-8 rounded-3xl border-white/10 max-w-4xl mx-auto">
+                
+                <!-- AI Stack Tab -->
+                <div id="content-ai" class="tab-content grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">LangGraph</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Advanced / Agent State</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">LangChain</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Production Runtimes</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">DeepAgents</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Multi-Tenant Agents</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Vertex AI</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">GCP Vector Embeddings</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Langfuse</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Tracing & Monitoring</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">OpenRouter</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Provider Pinning / MCP</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">ChromaDB</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Vector Storage</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Pinecone</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Similarity Search</div>
+                    </div>
+                </div>
+
+                <!-- Full Stack Tab -->
+                <div id="content-fullstack" class="tab-content hidden grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">React.js</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">4+ Years</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Next.js</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Server Components</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">TypeScript</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Type Safety</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Node.js</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Express / NestJS</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Python</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">FastAPI / Flask</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">React Native</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Cross-Platform Mobile</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Electron.js</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Desktop Products</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Tailwind CSS</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Expert UI/UX</div>
+                    </div>
+                </div>
+
+                <!-- Database Tab -->
+                <div id="content-db" class="tab-content hidden grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">PostgreSQL</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Durable Checkpointing</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">MongoDB</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Document Store</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Redis</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Caching & Celery Queues</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Prisma ORM</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Schema Migration</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Drizzle</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Lightweight Querying</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">MySQL</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Relational DB</div>
+                    </div>
+                </div>
+
+                <!-- Cloud & DevOps Tab -->
+                <div id="content-cloud" class="tab-content hidden grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">GCP & GCS</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Cloud Infrastructure</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">AWS (Lambda / S3)</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Serverless & Storage</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Docker</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Hardened Schedulers</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">OAuth 2.1 + PKCE</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Enterprise Auth</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">Nginx / VPS</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Reverse Proxy</div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5 text-center">
+                        <div class="text-white font-bold text-sm">CI/CD Pipelines</div>
+                        <div class="text-[10px] font-mono text-cyber-cyan mt-1">Automated Deploy</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CAREER TIMELINE JOURNEY -->
+        <section id="experience" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-2">Track Record</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Career Journey</h2>
+            </div>
+
+            <div class="relative border-l border-white/10 ml-4 sm:ml-32 space-y-12">
+                
+                <!-- Role 1 -->
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyber-cyan shadow-[0_0_12px_#00F5D4]"></div>
+                    <div class="sm:absolute sm:-left-36 sm:top-1 font-mono text-xs text-cyber-cyan font-bold mb-2 sm:mb-0">
+                        JAN 2026 – PRESENT
+                    </div>
+                    <div class="glass-card p-6 sm:p-8 rounded-3xl border-white/10">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold font-heading text-white">Full Stack AI Engineer</h3>
+                            <span class="text-xs font-mono text-slate-400">Knowledge Agents • Remote</span>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside mb-4 leading-relaxed">
+                            <li>Built production AI products across multi-tenant agents, RAG support, and revenue intelligence.</li>
+                            <li>Engineered agent runtime on LangChain/LangGraph/DeepAgents with Postgres checkpointing, memory, and human approval gates.</li>
+                            <li>Integrated OpenAI, Anthropic, Gemini, OpenRouter, and 1,500+ apps via OpenConnector.</li>
+                            <li>Added OAuth 2.1 + PKCE, Stripe usage billing webhooks, and Langfuse tracing.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700"></div>
+                    <div class="sm:absolute sm:-left-36 sm:top-1 font-mono text-xs text-slate-400 font-bold mb-2 sm:mb-0">
+                        FEB 2025 – PRESENT
+                    </div>
+                    <div class="glass-card p-6 sm:p-8 rounded-3xl border-white/10">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold font-heading text-white">Full Stack Engineer</h3>
+                            <span class="text-xs font-mono text-slate-400">Vizz Web Solutions • Pakistan</span>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed">
+                            <li>Owned full SDLC for client projects from system design through testing and CI/CD deployment.</li>
+                            <li>Fine-tuned language models for domain use cases and built workflow automation pipelines with n8n.</li>
+                            <li>Developed real-time B2B/B2C dashboards with Next.js, Node.js, and Python.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Role 3 -->
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700"></div>
+                    <div class="sm:absolute sm:-left-36 sm:top-1 font-mono text-xs text-slate-400 font-bold mb-2 sm:mb-0">
+                        JAN 2023 – FEB 2025
+                    </div>
+                    <div class="glass-card p-6 sm:p-8 rounded-3xl border-white/10">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold font-heading text-white">Frontend Developer</h3>
+                            <span class="text-xs font-mono text-slate-400">Zimo Group • London, UK (Remote)</span>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed">
+                            <li>Converted Adobe XD designs into Next.js applications integrated with AWS Lambda functions.</li>
+                            <li>Shipped multilingual real estate, file sharing, and e-signature web products.</li>
+                            <li>Built cross-platform desktop apps with Electron.js and mobile prototypes with React Native.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Earlier Roles -->
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-800"></div>
+                    <div class="sm:absolute sm:-left-36 sm:top-1 font-mono text-xs text-slate-500 font-bold mb-2 sm:mb-0">
+                        2021 – 2022
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-white/5">
+                        <div class="text-sm font-bold text-white mb-1">Frontend Developer (Relymer Group) & Backend Developer (Tech Falcon)</div>
+                        <p class="text-xs text-slate-400">Built React/Next.js components, Redux state pipelines, and MVC backend systems.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- INTERACTIVE PROJECT SCOPE ESTIMATOR & CONVERSION SECTION -->
+        <section id="estimator" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl border-white/10 relative overflow-hidden">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Column Info -->
+                    <div class="lg:col-span-5">
+                        <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-2">Instant Project Scope</div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white mb-6">Let's Engineer Your Next Product</h2>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-8">
+                            Select your requirement parameters to send an instant brief directly to Saqib Aziz. Typical responses within 4 hours.
+                        </p>
+
+                        <div class="space-y-4 text-xs font-mono text-slate-300">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="mail" class="w-4 h-4 text-cyber-cyan"></i>
+                                <span>saqibaziz33@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="github" class="w-4 h-4 text-cyber-cyan"></i>
+                                <span>github.com/Saqib-Aziz33</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="clock" class="w-4 h-4 text-cyber-cyan"></i>
+                                <span>US / UK Working Hours Flexible</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column Interactive Form -->
+                    <div class="lg:col-span-7 bg-slate-900/80 p-6 sm:p-8 rounded-2xl border border-white/5">
+                        <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Service Required</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button type="button" onclick="selectService('AI Agent & RAG')" class="service-btn p-3 rounded-xl border border-white/10 text-xs font-mono text-slate-300 hover:border-cyber-cyan transition-all text-left">
+                                        🤖 AI Agent / RAG
+                                    </button>
+                                    <button type="button" onclick="selectService('Full-Stack SaaS')" class="service-btn p-3 rounded-xl border border-white/10 text-xs font-mono text-slate-300 hover:border-cyber-cyan transition-all text-left">
+                                        💻 Full-Stack SaaS
+                                    </button>
+                                    <button type="button" onclick="selectService('Workflow Automation')" class="service-btn p-3 rounded-xl border border-white/10 text-xs font-mono text-slate-300 hover:border-cyber-cyan transition-all text-left">
+                                        ⚡ Automation / n8n
+                                    </button>
+                                    <button type="button" onclick="selectService('Remote Engineering Hire')" class="service-btn p-3 rounded-xl border border-white/10 text-xs font-mono text-slate-300 hover:border-cyber-cyan transition-all text-left">
+                                        💼 Remote Hire
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Your Name</label>
+                                    <input type="text" id="form-name" required placeholder="Alex Turner" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-cyber-cyan">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Your Email</label>
+                                    <input type="email" id="form-email" required placeholder="alex@company.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-cyber-cyan">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Estimated Timeline / Scope</label>
+                                <select id="form-timeline" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-slate-300 text-sm focus:outline-none focus:border-cyber-cyan">
+                                    <option>Immediate MVP Launch (2-4 Weeks)</option>
+                                    <option>Full System Architecture (1-2 Months)</option>
+                                    <option>Ongoing Engineering Role (Long-term)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Brief Summary</label>
+                                <textarea id="form-message" rows="3" placeholder="Outline your requirements or team needs..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-cyber-cyan"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-black font-extrabold text-xs font-mono uppercase tracking-wider hover:opacity-90 transition-all flex items-center justify-center gap-2">
+                                <span>Send Instant Strategy Request</span>
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/5 text-center text-xs font-mono text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            Designed & Engineered by Saqib Aziz • Built with Tailwind CSS & Cyber-Chic Glassmorphism
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Drawer Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tab Switcher Logic
+        function switchTab(tabKey) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            // Reset button styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-cyber-cyan', 'text-black');
+                btn.classList.add('glass-card', 'text-slate-300');
+            });
+
+            // Active Tab
+            document.getElementById('content-' + tabKey).classList.remove('hidden');
+            const activeBtn = document.getElementById('tab-' + tabKey);
+            activeBtn.classList.remove('glass-card', 'text-slate-300');
+            activeBtn.classList.add('bg-cyber-cyan', 'text-black');
+        }
+
+        // Service Selection Logic in Form
+        let selectedService = 'AI Agent & RAG';
+        function selectService(serviceName) {
+            selectedService = serviceName;
+            document.querySelectorAll('.service-btn').forEach(btn => {
+                btn.classList.remove('border-cyber-cyan', 'bg-cyber-cyan/10');
+            });
+            event.currentTarget.classList.add('border-cyber-cyan', 'bg-cyber-cyan/10');
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            alert(`Thank you ${name}! Your request for [${selectedService}] has been received. Saqib will reach out within 4 hours.`);
+        }
+    </script>
+</body>
+</html>
